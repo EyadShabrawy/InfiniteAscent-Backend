@@ -70,6 +70,42 @@ app.put('/update-coins', (req, res) => {
     });
 });
 
+// Update armor_level
+app.put('/update-armor', (req, res) => {
+    const { id, level } = req.body;
+    const sql = `UPDATE users SET armor_level = ? WHERE id = ?`;
+    db.run(sql, [level, id], function (err) {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        res.json({ message: 'Armor level updated successfully' });
+    });
+});
+
+// Update damage_level
+app.put('/update-damage', (req, res) => {
+    const { id, level } = req.body;
+    const sql = `UPDATE users SET damage_level = ? WHERE id = ?`;
+    db.run(sql, [level, id], function (err) {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        res.json({ message: 'Damage level updated successfully' });
+    });
+});
+
+// Update speed_level
+app.put('/update-speed', (req, res) => {
+    const { id, level } = req.body;
+    const sql = `UPDATE users SET speed_level = ? WHERE id = ?`;
+    db.run(sql, [level, id], function (err) {
+        if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        res.json({ message: 'Speed level updated successfully' });
+    });
+});
+
 // Delete user
 app.delete('/user/:id', (req, res) => {
     const sql = `DELETE FROM users WHERE id = ?`;
