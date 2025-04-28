@@ -72,9 +72,9 @@ app.put('/update-coins', (req, res) => {
 
 // Update armor_level
 app.put('/update-armor', (req, res) => {
-    const { id, level } = req.body;
+    const { id, armor_level } = req.body;
     const sql = `UPDATE users SET armor_level = ? WHERE id = ?`;
-    db.run(sql, [level, id], function (err) {
+    db.run(sql, [armor_level, id], function (err) {
         if (err) {
             return res.status(400).json({ error: err.message });
         }
@@ -84,9 +84,9 @@ app.put('/update-armor', (req, res) => {
 
 // Update damage_level
 app.put('/update-damage', (req, res) => {
-    const { id, level } = req.body;
+    const { id, damage_level } = req.body;
     const sql = `UPDATE users SET damage_level = ? WHERE id = ?`;
-    db.run(sql, [level, id], function (err) {
+    db.run(sql, [damage_level, id], function (err) {
         if (err) {
             return res.status(400).json({ error: err.message });
         }
@@ -96,9 +96,9 @@ app.put('/update-damage', (req, res) => {
 
 // Update speed_level
 app.put('/update-speed', (req, res) => {
-    const { id, level } = req.body;
+    const { id, speed_level } = req.body;
     const sql = `UPDATE users SET speed_level = ? WHERE id = ?`;
-    db.run(sql, [level, id], function (err) {
+    db.run(sql, [speed_level, id], function (err) {
         if (err) {
             return res.status(400).json({ error: err.message });
         }
